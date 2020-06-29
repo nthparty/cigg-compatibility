@@ -5,9 +5,7 @@ notifications:
 os:
   - linux
   - osx
-language: python
-python:
-  - "3.6"
+language: generic
 cache: pip
 install:
   - pip install canaries
