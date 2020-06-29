@@ -1,0 +1,14 @@
+notifications:
+  email:
+    on_success: never
+    on_failure: always
+os:
+  - linux
+language: python
+python:
+  - "3.8"
+cache: pip
+install:
+  - pip install canaries
+script:
+  - python test.py
