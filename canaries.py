@@ -37,6 +37,8 @@ class canaries():
                     r = lib.canary(chirp, treat)
                     if r != 0 or\
                        list(map(ord, chirp)) != list(map(ord, "chirp")):
+                        print("return:", r)
+                        print("chirp:", list(map(ord, chirp)))
                         lib = None
                 except:
                     lib = None
