@@ -5,6 +5,7 @@ files compatible with the operating environment.
 """
 
 import doctest
+import sys
 import platform
 import ctypes
 
@@ -39,8 +40,18 @@ class canaries():
                         lib = None
                 except:
                     lib = None
+                    print('Error: {}. {}, line: {}'.format(
+                        sys.exc_info()[0],
+                        sys.exc_info()[1],
+                        sys.exc_info()[2].tb_lineno
+                    ))
         except:
             pass
+            print('Error: {}. {}, line: {}'.format(
+                sys.exc_info()[0],
+                sys.exc_info()[1],
+                sys.exc_info()[2].tb_lineno
+            ))
 
         return lib
 
