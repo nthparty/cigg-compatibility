@@ -38,9 +38,9 @@ class canaries():
                     chirp = ctypes.create_string_buffer(5)
                     r = lib.canary(chirp, treat)
                     if r != 0 or\
-                       chirp.raw != bytes([99, 104, 105, 114, 112]):
+                       chirp.raw != 'chirp'):
                         print("return:", r)
-                        print("chirp:", chirp.raw, bytes([99, 104, 105, 114, 112]))
+                        print("chirp:", chirp.raw, 'chirp')
                         lib = None
                 except:
                     lib = None
