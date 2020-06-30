@@ -33,7 +33,7 @@ class canaries():
                 try:
                     # Confirm that the library's exported functions work.
                     treat = ctypes.create_string_buffer(5)
-                    for (i, c) in enumerate([116, 114, 101, 97, 116]):
+                    for (i, c) in enumerate(["t", "r", "e", "a", "t"]):
                         treat[i] = c
                     chirp = ctypes.create_string_buffer(5)
                     r = lib.canary(chirp, treat)
