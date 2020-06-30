@@ -34,7 +34,7 @@ class canaries():
                     # Confirm that the library's exported functions work.
                     treat = ctypes.create_string_buffer(5)
                     for (i, c) in enumerate("treat"):
-                        treat[i] = c
+                        treat[i] = ord(c)
                     chirp = ctypes.create_string_buffer(5)
                     r = lib.canary(chirp, treat)
                     chirp = chirp.raw
