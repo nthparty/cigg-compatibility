@@ -34,12 +34,12 @@ class canaries():
                     # Confirm that the library's exported functions work.
                     treat = ctypes.create_string_buffer(5)
                     for (i, c) in enumerate("treat"):
-                        treat[i] = ord(c)
+                        treat[i] = bytes([ord(c)])
                     chirp = ctypes.create_string_buffer(5)
                     r = lib.canary(chirp, treat)
                     chirp = chirp.raw
                     if r != 0 or\
-                       list(chirp) != list(map(ord, "chirp")):
+                       list(map(ord, chirp)) != list(map(ord, "chirp")):
                         print("return:", r)
                         print("chirp:", list(chirp))
                         lib = None
