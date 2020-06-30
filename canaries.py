@@ -32,7 +32,7 @@ class canaries():
             if lib is not None:
                 try:
                     # Confirm that the library's exported functions work.
-                    treat = ctypes.create_string_buffer(bytes(map(ord, "treat")))
+                    treat = ctypes.create_string_buffer(bytes([116, 114, 101, 97, 116]))
                     chirp = ctypes.create_string_buffer(5)
                     r = lib.canary(chirp, treat)
                     chirp = chirp.raw
