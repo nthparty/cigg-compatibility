@@ -33,7 +33,7 @@ class canaries():
                 try:
                     # Confirm that the library's exported functions work.
                     treat = ctypes.create_string_buffer(bytes(map(ord, "treat")))
-                    chirp = ctypes.create_string_buffer(5)
+                    chirp = ctypes.create_string_buffer(bytes(map(ord, "quiet")))
                     r = lib.canary(chirp, treat)
                     if r != 0 or\
                        list(map(ord, chirp)) != list(map(ord, "chirp")):
