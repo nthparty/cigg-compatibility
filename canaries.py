@@ -37,11 +37,10 @@ class canaries():
                         treat[i] = bytes([ord(c)])
                     chirp = ctypes.create_string_buffer(5)
                     r = lib.canary(chirp, treat)
-                    chirp = chirp.raw
                     if r != 0 or\
-                       list(map(ord, chirp)) != list(map(ord, "chirp")):
+                       chirp.raw != bytes([116, 114, 101, 97, 116]):
                         print("return:", r)
-                        print("chirp:", list(chirp))
+                        print("chirp:", chirp.raw, bytes([116, 114, 101, 97, 116]))
                         lib = None
                 except:
                     lib = None
